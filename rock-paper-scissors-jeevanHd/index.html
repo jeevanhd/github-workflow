@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors - Code, Create, Conquer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Welcome Screen -->
+      <div class="welcome-screen" id="welcome-screen">
+        <header>
+          <h1>🎮 Rock Paper Scissors</h1>
+          <p class="subtitle">Code, Create, Conquer</p>
+        </header>
+        <div class="welcome-content">
+          <div class="game-rules">
+            <h3>Game Rules:</h3>
+            <ul>
+              <li>🪨 Rock crushes ✂️ Scissors</li>
+              <li>📄 Paper covers 🪨 Rock</li>
+              <li>✂️ Scissors cuts 📄 Paper</li>
+            </ul>
+            <p>Play 5 rounds against the computer!</p>
+          </div>
+          <button id="start-game-btn" class="start-btn">Start Game</button>
+        </div>
+      </div>
+
+      <!-- Game Screen -->
+      <div class="game-screen" id="game-screen" style="display: none">
+        <header>
+          <h1>🎮 Rock Paper Scissors</h1>
+          <p class="subtitle">Code, Create, Conquer</p>
+        </header>
+
+        <div class="game-info">
+          <div class="round-info">
+            <h3>Round <span id="current-round">1</span> of 5</h3>
+          </div>
+          <div class="score-board">
+            <div class="player-score">
+              <h3>You</h3>
+              <span id="player-score">0</span>
+            </div>
+            <div class="vs">VS</div>
+            <div class="computer-score">
+              <h3>Computer</h3>
+              <span id="computer-score">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-area">
+          <div class="choices-display">
+            <div class="choice-container">
+              <h4>Your Choice</h4>
+              <div id="player-choice-display" class="choice-display">?</div>
+            </div>
+            <div class="choice-container">
+              <h4>Computer's Choice</h4>
+              <div id="computer-choice-display" class="choice-display">?</div>
+            </div>
+          </div>
+
+          <div class="result-message">
+            <p id="round-result">Choose your weapon!</p>
+          </div>
+
+          <div class="game-controls">
+            <h3>Choose Your Move:</h3>
+            <div class="choices">
+              <button id="rock" class="choice-btn" data-choice="rock">
+                <span class="emoji">🪨</span>
+                <span class="label">Rock</span>
+              </button>
+              <button id="paper" class="choice-btn" data-choice="paper">
+                <span class="emoji">📄</span>
+                <span class="label">Paper</span>
+              </button>
+              <button id="scissors" class="choice-btn" data-choice="scissors">
+                <span class="emoji">✂️</span>
+                <span class="label">Scissors</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="final-result" id="final-result" style="display: none">
+          <div class="final-message">
+            <h2 id="final-message-text"></h2>
+            <div class="final-buttons">
+              <button id="play-again-btn" class="play-again-btn">
+                Play Again
+              </button>
+              <button id="back-to-welcome-btn" class="back-to-welcome-btn">
+                Back to Menu
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of game-screen -->
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
