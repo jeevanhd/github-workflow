@@ -4,98 +4,168 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors - Code, Create, Conquer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Sound Toggle -->
+    <button class="sound-toggle" id="sound-toggle" aria-label="Toggle Sound">
+      <span class="sound-icon">🔊</span>
+    </button>
     <div class="container">
       <!-- Welcome Screen -->
       <div class="welcome-screen" id="welcome-screen">
-        <header>
-          <h1>🎮 Rock Paper Scissors</h1>
-          <p class="subtitle">Code, Create, Conquer</p>
+        <header class="animated-header">
+          <h1 class="game-title">
+            <span class="title-icon">🎮</span>
+            <span class="title-text">Rock Paper Scissors</span>
+            <span class="title-icon">🎮</span>
+          </h1>
+          <p class="subtitle glitch-text">Code, Create, Conquer</p>
         </header>
         <div class="welcome-content">
-          <div class="game-rules">
-            <h3>Game Rules:</h3>
-            <ul>
-              <li>🪨 Rock crushes ✂️ Scissors</li>
-              <li>📄 Paper covers 🪨 Rock</li>
-              <li>✂️ Scissors cuts 📄 Paper</li>
+          <div class="game-rules glass-card">
+            <h3 class="rules-title">
+              <span class="rules-icon">📋</span>
+              Game Rules:
+            </h3>
+            <ul class="rules-list">
+              <li class="rule-item">
+                <span class="rule-emoji">🪨</span>
+                Rock crushes
+                <span class="rule-emoji">✂️</span>
+                Scissors
+              </li>
+              <li class="rule-item">
+                <span class="rule-emoji">📄</span>
+                Paper covers
+                <span class="rule-emoji">🪨</span>
+                Rock
+              </li>
+              <li class="rule-item">
+                <span class="rule-emoji">✂️</span>
+                Scissors cuts
+                <span class="rule-emoji">📄</span>
+                Paper
+              </li>
             </ul>
-            <p>Play 5 rounds against the computer!</p>
+            <p class="game-description">Play 5 epic rounds against the AI!</p>
           </div>
-          <button id="start-game-btn" class="start-btn">Start Game</button>
+          <button id="start-game-btn" class="start-btn neon-btn">
+            <span class="btn-text">Start Game</span>
+            <span class="btn-glow"></span>
+          </button>
         </div>
       </div>
 
       <!-- Game Screen -->
       <div class="game-screen" id="game-screen" style="display: none">
-        <header>
-          <h1>🎮 Rock Paper Scissors</h1>
+        <header class="game-header">
+          <h1 class="game-title-small">
+            <span class="title-icon">🎮</span>
+            Rock Paper Scissors
+          </h1>
           <p class="subtitle">Code, Create, Conquer</p>
         </header>
 
-        <div class="game-info">
+        <div class="game-info glass-card">
           <div class="round-info">
-            <h3>Round <span id="current-round">1</span> of 5</h3>
+            <h3 class="round-text">
+              Round <span id="current-round" class="round-number">1</span> of 5
+            </h3>
+            <div class="round-progress">
+              <div class="progress-bar" id="progress-bar"></div>
+            </div>
           </div>
           <div class="score-board">
-            <div class="player-score">
-              <h3>You</h3>
-              <span id="player-score">0</span>
+            <div class="player-score score-card">
+              <h3 class="score-label">You</h3>
+              <span id="player-score" class="score-value">0</span>
             </div>
-            <div class="vs">VS</div>
-            <div class="computer-score">
-              <h3>Computer</h3>
-              <span id="computer-score">0</span>
+            <div class="vs-divider">
+              <span class="vs-text">VS</span>
+              <div class="vs-lightning">⚡</div>
+            </div>
+            <div class="computer-score score-card">
+              <h3 class="score-label">AI</h3>
+              <span id="computer-score" class="score-value">0</span>
+            </div>
+          </div>
+        </div>
             </div>
           </div>
         </div>
 
         <div class="game-area">
-          <div class="choices-display">
+          <div class="choices-display glass-card">
             <div class="choice-container">
-              <h4>Your Choice</h4>
-              <div id="player-choice-display" class="choice-display">?</div>
+              <h4 class="choice-label">Your Choice</h4>
+              <div id="player-choice-display" class="choice-display pulse">
+                <span class="choice-icon">❓</span>
+                <span class="choice-name">Choose</span>
+              </div>
+            </div>
+            <div class="battle-zone">
+              <div class="battle-effects" id="battle-effects">
+                <div class="spark"></div>
+                <div class="spark"></div>
+                <div class="spark"></div>
+              </div>
             </div>
             <div class="choice-container">
-              <h4>Computer's Choice</h4>
-              <div id="computer-choice-display" class="choice-display">?</div>
+              <h4 class="choice-label">AI's Choice</h4>
+              <div id="computer-choice-display" class="choice-display pulse">
+                <span class="choice-icon">❓</span>
+                <span class="choice-name">Thinking</span>
+              </div>
             </div>
           </div>
 
           <div class="result-message">
-            <p id="round-result">Choose your weapon!</p>
+            <p id="round-result" class="result-text">Choose your weapon!</p>
+            <div class="result-animation" id="result-animation"></div>
           </div>
 
           <div class="game-controls">
-            <h3>Choose Your Move:</h3>
+            <h3 class="controls-title">Choose Your Move:</h3>
             <div class="choices">
-              <button id="rock" class="choice-btn" data-choice="rock">
-                <span class="emoji">🪨</span>
-                <span class="label">Rock</span>
+              <button id="rock" class="choice-btn neon-choice" data-choice="rock">
+                <span class="choice-emoji">🪨</span>
+                <span class="choice-label">Rock</span>
+                <div class="btn-ripple"></div>
               </button>
-              <button id="paper" class="choice-btn" data-choice="paper">
-                <span class="emoji">📄</span>
-                <span class="label">Paper</span>
+              <button id="paper" class="choice-btn neon-choice" data-choice="paper">
+                <span class="choice-emoji">📄</span>
+                <span class="choice-label">Paper</span>
+                <div class="btn-ripple"></div>
               </button>
-              <button id="scissors" class="choice-btn" data-choice="scissors">
-                <span class="emoji">✂️</span>
-                <span class="label">Scissors</span>
+              <button id="scissors" class="choice-btn neon-choice" data-choice="scissors">
+                <span class="choice-emoji">✂️</span>
+                <span class="choice-label">Scissors</span>
+                <div class="btn-ripple"></div>
               </button>
             </div>
           </div>
         </div>
 
-        <div class="final-result" id="final-result" style="display: none">
+        <div class="final-result glass-card" id="final-result" style="display: none">
           <div class="final-message">
-            <h2 id="final-message-text"></h2>
+            <div class="final-trophy" id="final-trophy">🏆</div>
+            <h2 id="final-message-text" class="final-text"></h2>
+            <div class="confetti" id="confetti"></div>
             <div class="final-buttons">
-              <button id="play-again-btn" class="play-again-btn">
-                Play Again
+              <button id="play-again-btn" class="neon-btn secondary">
+                <span class="btn-text">Play Again</span>
+                <span class="btn-glow"></span>
               </button>
-              <button id="back-to-welcome-btn" class="back-to-welcome-btn">
-                Back to Menu
+              <button id="back-to-welcome-btn" class="neon-btn primary">
+                <span class="btn-text">Back to Menu</span>
+                <span class="btn-glow"></span>
               </button>
             </div>
           </div>
