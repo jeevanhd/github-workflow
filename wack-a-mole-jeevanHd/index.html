@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whack-a-Mole Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Welcome Screen -->
+      <div class="welcome-screen" id="welcome-screen">
+        <header>
+          <h1>🔨 Whack-a-Mole 🔨</h1>
+          <p class="subtitle">Code, Create, Conquer</p>
+        </header>
+        <div class="welcome-content">
+          <div class="game-rules">
+            <h3>Game Rules:</h3>
+            <ul>
+              <li>🐹 Whack the moles as they appear!</li>
+              <li>⏰ You have 30 seconds to score</li>
+              <li>📈 Difficulty increases every 15 seconds</li>
+              <li>💣 Avoid bombs at Level 2+ (they reduce score!)</li>
+              <li>🎯 Hit accuracy matters for final score</li>
+            </ul>
+            <p>Ready to test your reflexes?</p>
+          </div>
+          <button id="start-game-btn" class="start-btn">Start Game</button>
+        </div>
+      </div>
+
+      <!-- Game Screen -->
+      <div class="game-screen" id="game-screen" style="display: none">
+        <header>
+          <h1>🔨 Whack-a-Mole 🔨</h1>
+          <div class="game-info">
+            <div class="score-container">
+              <span>Score: </span>
+              <span id="score">0</span>
+            </div>
+            <div class="timer-container">
+              <span>Time: </span>
+              <span id="timer">30</span>s
+            </div>
+            <div class="level-container">
+              <span>Level: </span>
+              <span id="level">1</span>
+            </div>
+          </div>
+        </header>
+
+        <main>
+          <div class="game-board" id="gameBoard">
+            <div class="hole" data-index="0">
+              <div class="mole" id="mole-0"></div>
+              <div class="bomb" id="bomb-0"></div>
+            </div>
+            <div class="hole" data-index="1">
+              <div class="mole" id="mole-1"></div>
+              <div class="bomb" id="bomb-1"></div>
+            </div>
+            <div class="hole" data-index="2">
+              <div class="mole" id="mole-2"></div>
+              <div class="bomb" id="bomb-2"></div>
+            </div>
+            <div class="hole" data-index="3">
+              <div class="mole" id="mole-3"></div>
+              <div class="bomb" id="bomb-3"></div>
+            </div>
+            <div class="hole" data-index="4">
+              <div class="mole" id="mole-4"></div>
+              <div class="bomb" id="bomb-4"></div>
+            </div>
+            <div class="hole" data-index="5">
+              <div class="mole" id="mole-5"></div>
+              <div class="bomb" id="bomb-5"></div>
+            </div>
+            <div class="hole" data-index="6">
+              <div class="mole" id="mole-6"></div>
+              <div class="bomb" id="bomb-6"></div>
+            </div>
+            <div class="hole" data-index="7">
+              <div class="mole" id="mole-7"></div>
+              <div class="bomb" id="bomb-7"></div>
+            </div>
+            <div class="hole" data-index="8">
+              <div class="mole" id="mole-8"></div>
+              <div class="bomb" id="bomb-8"></div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button
+              id="startBtn"
+              class="game-btn start-btn"
+              style="display: none"
+            >
+              Start Game
+            </button>
+            <button
+              id="restartBtn"
+              class="game-btn restart-btn"
+              style="display: none"
+            >
+              Restart Game
+            </button>
+          </div>
+
+          <div class="feedback" id="feedback"></div>
+        </main>
+      </div>
+
+      <!-- Game Over Modal -->
+      <div class="modal" id="gameOverModal" style="display: none">
+        <div class="modal-content">
+          <h2>🎉 Game Over! 🎉</h2>
+          <div class="final-stats">
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Level Reached: <span id="finalLevel">1</span></p>
+            <p>Accuracy: <span id="accuracy">0%</span></p>
+          </div>
+          <div class="modal-buttons">
+            <button id="playAgainBtn" class="game-btn">Play Again</button>
+            <button id="homeScreenBtn" class="game-btn home-btn">
+              Home Screen
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
